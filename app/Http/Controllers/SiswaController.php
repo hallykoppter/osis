@@ -17,3 +17,5 @@ class SiswaController extends Controller
         return view('admin.siswa')->with($data);
     }
 }
+
+

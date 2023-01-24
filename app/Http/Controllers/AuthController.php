@@ -23,7 +23,7 @@ class AuthController extends Controller
         if (Auth::guard('user')->attempt($credentiials)) {
             $request->session()->regenerate();
             if (Auth::guard('user')->user()->sudah_memilih !== 0) {
-                dd("Kamu Sudah Memilih");
+                return redirect('done');
             } else {
                 return redirect()->intended('home');
             }

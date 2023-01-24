@@ -27,6 +27,7 @@ Route::get('/dashboard', [MainController::class, 'dashboard']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/logout_admin', [AuthController::class, 'logout_admin']);
 
+Route::post('/pilih', [MainController::class, 'pilih']);
 Route::get('/done', [MainController::class, 'done']);
 
 // Route::get('/home', [MainController::class, 'index'])->middleware('auth');

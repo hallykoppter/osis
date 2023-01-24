@@ -16,7 +16,7 @@ class CalonController extends Controller
     public function index()
     {
         $data = [
-            'calon' => Calon::all(),
+            'calon' => Calon::orderBy('nomor')->get(),
             'title' => 'OSIS | Calon'
         ];
         return view('admin.calon')->with($data);
