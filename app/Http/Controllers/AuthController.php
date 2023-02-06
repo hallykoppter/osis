@@ -9,7 +9,7 @@ class AuthController extends Controller
 {
     public function index()
     {
-        return view('auth.login', ['title' => 'OSIS | Login']);
+        return view('home', ['title' => 'OSIS | Login']);
     }
 
     public function authentication(Request $request)
@@ -53,7 +53,7 @@ class AuthController extends Controller
 
     public function admin()
     {
-        return view('auth.login_admin', ['title' => 'OSIS | Admin']);
+        return view('admin', ['title' => 'OSIS | Admin']);
     }
 
     public function login_admin(Request $request)

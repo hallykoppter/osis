@@ -1,0 +1,463 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, input {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.container::before{
+    content: "";
+    position: absolute;
+    width: 2000px;
+    height: 2000px;
+    border-radius: 50%;
+    background: linear-gradient(-45deg, #4481eb, #04befe);
+    top: -10%;
+    right: 48%;
+    transform: translateY(-50%);
+    z-index: 6;
+    transition: 1.8s ease-in-out;
+}
+
+.form-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr;
+    z-index: 5;
+    transition: 1s 0.7s ease-in-out;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 5rem;
+    overflow: hidden;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    transition: 0.2s 0.7s ease-in-out;
+}
+
+form.user {
+    z-index: 2;
+}
+
+form.admin {
+    z-index: 1;
+    opacity: 0;
+}
+
+.judul {
+    font-size: 2.2rem;
+    color: rgb(22, 22, 22);
+    margin: 10px 0;
+    text-align: center;
+}
+
+.title{
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.input-field{
+    max-width: 380px;
+    width: 100%;
+    height: 55px;
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 0 0.4rem;
+}
+
+.input-field i {
+    text-align: center;
+    line-height: 55px;
+    columns: #acacac;
+    font-size: 1.1rem;
+}
+
+.input-field input{
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.input-field input::placeholder {
+    columns: #aaa;
+    font-weight: 400;
+}
+
+.btn {
+    width: 150px;
+    height: 49px;
+    border: none;
+    outline: none;
+    border-radius: 49px;
+    cursor: pointer;
+    background-color: #5995fd;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 10px 0;
+    transition: .5s;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #4d84e2;
+}
+
+.powered-by {
+    padding: .7rem 0;
+    font-size: 1rem;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-icon {
+    height: 80px;
+    width: 80px;
+    border: 1px solid #333;
+    margin: 0 0.45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.logo-icon:hover {
+    background-color: #4481eb;
+    border-color: #4481eb;
+}
+
+.panels-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    text-align: center;
+    z-index: 7;
+}
+
+.left-panel {
+    pointer-events: all;
+    padding: 3rem 17% 2rem 12%;
+}
+
+.right-panel {
+    pointer-events: none;
+    padding: 3rem 12% 2rem 17%;
+}
+
+.panel .content {
+    color: #fff;
+    transition: .9s .6s ease-in-out;
+    padding-right: 25%;
+}
+
+.panel h3 {
+    font-weight: 500;
+    line-height: 1;
+    font-size: 1.5rem;
+}
+
+.panel p {
+    font-size: 0.95rem;
+    padding: 0.7rem 0;
+}
+
+.btn.transparent {
+    margin: 0;
+    background: none;
+    border: 2px solid #fff;
+    width: 130px;
+    height: 41px;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.container-image {
+    position: relative;
+    width: 130%;
+    top: 0;
+    left: 30%;
+}
+
+.container-image .alt-image {
+    position: absolute;
+    color: #000;
+    bottom: -1.2rem;
+    right: 0;
+    transition: 1.2s .2s ease-in-out;
+}
+
+.container-image {
+    transition: 1.2s .2s ease-in-out;
+}
+
+.image {
+    margin-top: 2rem;
+    width: 100%;
+    transition: 1.1s .4s ease-in-out;
+}
+
+.right-panel .content, .right-panel .image {
+    transform: translateX(800px );
+}
+
+
+
+
+
+
+
+
+/* Responsive image */
+
+.img-fluid {
+    width: auto;
+    height: 60%;
+}
+
+
+
+
+/* Animation */
+.container.admin-mode:before {
+    transform: translate(100%, -50%);
+    right: 52%;
+}
+
+.container.admin-mode .left-panel .image,
+.container.admin-mode .left-panel .content,
+.container.admin-mode .left-panel .container-image,
+.container.admin-mode .left-panel .alt-image {
+    transform: translateX(-1200px);
+}
+
+.container.admin-mode .right-panel .content,
+.container.admin-mode .right-panel .image {
+    transform: translateX(0px);
+}
+
+.container.container.admin-mode .left-panel{
+    pointer-events: none;
+}
+
+.container.container.admin-mode .right-panel{
+    pointer-events: all;
+}
+
+.container.container.admin-mode .login-container{
+    left: 25%;
+}
+
+.container.admin-mode form.user {
+    z-index: 1;
+    opacity: 0;
+}
+
+.container.admin-mode form.admin {
+    z-index: 2;
+    opacity: 1;
+}
+
+.container.admin-mode .container-image .alt-image {
+    transform: translateX(-800px);
+}
+
+
+
+/* Media Query */
+@media (max-width: 870px){
+     .container {
+        min-height: 800px;
+        height: 100vh;
+     }
+
+     .container:before {
+        width: 1500px;
+        height: 1500px;
+        left: 30%;
+        bottom: 69%;
+        transform: translateX(-50%);
+        right: initial;
+        top: initial;
+        z-index: 2;
+        transition: 2s ease-in-out;
+     }
+
+     .login-container {
+        width: 100%;
+        left: 50%;
+        top: 96%;
+        transform: translate(-50%, -100%);
+        z-index: 1;
+        transition: 1s .6s ease-in-out;
+     }
+
+     .judul {
+        font-size: 2rem;
+        width: 100%;
+        margin: 1rem 0;
+        z-index: 999;
+     }
+
+     .panels-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+     }
+
+     .panel {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2.5rem 8%;
+     }
+
+     .panel h3 {
+        font-size: 1.2rem;
+     }
+
+     .btn.transparent {
+        width: 110px;
+        height: 35px;
+        font-size: 0.7rem;
+     }
+
+     .panel .content {
+        padding-right: 15%;
+        transition: 0.9s 0.8s ease-in-out;
+     }
+
+     .left-panel{
+        grid-row: 1 / 2;
+     }
+
+     .right-panel {
+        grid-row: 3 / 4;
+     }
+    
+     .left-panel .container-image {
+        align-items: center;
+        width: 100%;
+        left: 10%;
+     }
+
+     .left-panel .container-image .alt-image {
+        font-size: 0.7rem;
+        left: 5%;
+        display: block;
+        position: initial;
+     }
+
+     .image {
+        width: 200px;
+        transition: 0.9s 0.6s ease-in-out;
+     }
+
+     .right-panel .content, .right-panel .image {
+        transform: translateY(300px);
+        color: #000;
+        mix-blend-mode: difference;
+    }
+
+    .container.admin-mode:before{
+        transform: translate(-50%, 100%);
+        bottom: 32%;
+        right: initial;
+        left: 65%;
+    }
+
+    .container.admin-mode .left-panel .image,
+    .container.admin-mode .left-panel .content, 
+    .container.admin-mode .left-panel .alt-image {
+        transform: translateY(-300px);        
+    }
+
+    .container.admin-mode .login-container {
+        top: 5%;
+        transform: translate(-25%, 0);
+    }
+}
+
+@media (max-width: 570px) {
+    form {
+        padding: 0 1.5rem;
+    }
+
+    .container-image {
+        display: none;
+    }
+
+    .image {
+        display: none;
+    }
+
+    .panel .content {
+        padding: 0.5rem 1rem;
+    }
+
+    .container:before{
+        bottom: 72%;
+        left: 50%;
+    }
+
+    .container.admin-mode:before{
+        bottom: 25%;
+        left: 50%;
+    }
+
+    .container.admin-mode .right-panel .content {
+        color: #fff;
+    }
+}
