@@ -20,6 +20,7 @@ class AuthController extends Controller
                 'password' => 'required'
             ]
         );
+
         if (Auth::guard('user')->attempt($credentiials)) {
             $request->session()->regenerate();
             if (Auth::guard('user')->user()->sudah_memilih !== 0) {
@@ -48,7 +49,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/admin');
+        return redirect('/');
     }
 
     public function admin()
