@@ -54,7 +54,7 @@ class AuthController extends Controller
 
     public function admin()
     {
-        return view('admin', ['title' => 'OSIS | Admin']);
+        return view('dashboard', ['title' => 'OSIS | Admin']);
     }
 
     public function login_admin(Request $request)
