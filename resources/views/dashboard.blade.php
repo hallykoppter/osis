@@ -1,6 +1,6 @@
-@extends('layout/admin.main')
+@extends('layouts/admin/main')
 
-@section('content')
+@section('container')
 <div class="content">
   <div class="container">
 

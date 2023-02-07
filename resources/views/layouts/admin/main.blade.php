@@ -18,15 +18,15 @@
   <div class="cont">
 
 
-    @include('sidebar')
+    @include('/layouts/admin/sidebar')
 
     <div class="main-content">
 
-      @include('navbar')
+      @include('layouts/admin/navbar')
 
 
       <!-- Main Content -->
-      @yield('content')
+      @yield('container')
 
     </div>
 
