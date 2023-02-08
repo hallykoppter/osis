@@ -12,7 +12,7 @@ class MainController extends Controller
     public function index()
     {
         $calon  = Calon::orderBy('nomor')->get();
-        return view('home', compact('calon'));
+        return view('main', compact('calon'));
     }
 
     public function done()

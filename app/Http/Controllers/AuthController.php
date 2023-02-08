@@ -26,7 +26,7 @@ class AuthController extends Controller
             if (Auth::guard('user')->user()->sudah_memilih !== 0) {
                 return redirect('done');
             } else {
-                return redirect()->intended('home');
+                return redirect()->intended('/main');
             }
         }
         return back()->with('LoginError', 'Login Gagal');
