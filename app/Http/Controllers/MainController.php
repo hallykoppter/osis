@@ -27,7 +27,7 @@ class MainController extends Controller
 
     public function pilih(Request $request)
     {
-        $pilihan = $request->input('pilihan');
+        $pilihan = $request->input('nomor_calon');
         $nisn = $request->input('NISN');
 
         dd($pilihan);

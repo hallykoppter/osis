@@ -21,16 +21,16 @@
             <img src="/img/profile.jpg" class="img-fluid">
           </div>
           <div class="col-lg-8">
-            <input type="text" readonly class="form-control-plaintext ms-1 fw-bold text-light" id="staticEmail2" value="KURNIA SANDI">
-            <input type="text" readonly class="form-control-plaintext ms-1 fw-bold text-light" id="staticEmail2" value="Kelas 9A">
-            <input type="text" readonly class="form-control-plaintext ms-1 fw-bold text-light" id="staticEmail2" value="123456789">
+            <input type="text" readonly class="form-control-plaintext ms-1 fw-bold text-light" id="staticEmail2" value="{{ auth()->guard('user')->user()->nama }}">
+            <input type="text" readonly class="form-control-plaintext ms-1 fw-bold text-light" id="staticEmail2" value="Kelas {{ auth()->guard('user')->user()->kelas }}">
+            <input type="text" readonly class="form-control-plaintext ms-1 fw-bold text-light" id="staticEmail2" value="{{ auth()->guard('user')->user()->NISN }}">
           </div>
         </div>
       </div>
       <div class="calon">
         @foreach ( $calon as $c)
         <a data-bs-toggle="modal" data-bs-target="#modal{{$c->id}}" id="link">
-        <div class="card" id="card" style="width: 18rem; background-color: {{$c->warna}};">
+        <div class="card" id="card" style="width: 16rem; background-color: {{$c->warna}};">
             <img src="/img/calon.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <p class="card-text">
@@ -70,6 +70,7 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <form action="/pilih" method="post">
+                @csrf
                 <input type="hidden" name="NISN" value="{{auth()->guard('user')->user()->NISN}}">
                 <input type="hidden" name="nomor_calon" value="{{ $c->nomor }}">
             <button type="submit" class="btn btn-primary">Pilih</button>

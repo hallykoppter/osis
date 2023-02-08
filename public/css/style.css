@@ -386,7 +386,7 @@ form.admin {
      .right-panel {
         grid-row: 3 / 4;
      }
-    
+
      .left-panel .container-image {
         align-items: center;
         width: 100%;
@@ -419,9 +419,9 @@ form.admin {
     }
 
     .container.admin-mode .left-panel .image,
-    .container.admin-mode .left-panel .content, 
+    .container.admin-mode .left-panel .content,
     .container.admin-mode .left-panel .alt-image {
-        transform: translateY(-300px);        
+        transform: translateY(-300px);
     }
 
     .container.admin-mode .login-container {

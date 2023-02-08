@@ -22,7 +22,7 @@ Route::get('/', [AuthController::class, 'index'])->middleware('guest')->name('lo
 Route::post('/login', [AuthController::class, 'authentication']);
 Route::post('/admin_login', [AuthController::class, 'login_admin']);
 
-Route::get('/main', [MainController::class, 'index']);
+Route::get('/main', [MainController::class, 'index'])->middleware('auth:user');
 Route::post('/pilih', [MainController::class, 'pilih']);
 
 Route::get('/dashboard', [AuthController::class, 'admin'])->middleware('auth:admin');
