@@ -81,3 +81,22 @@ body {
 .calon .card.active{
     transform: scale(1.1);
 }
+
+.terimakasih {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    line-height: 3rem;
+}
+
+@media (max-width: 720px) {
+    .content {
+        transform: scale(1.2);
+    }
+
+    .terimakasih {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+}

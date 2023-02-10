@@ -30,7 +30,7 @@
       <div class="calon">
         @foreach ( $calon as $c)
         <a data-bs-toggle="modal" data-bs-target="#modal{{$c->id}}" id="link">
-        <div class="card" id="card" style="width: 16rem; background-color: {{$c->warna}};">
+        <div class="card text-light" id="card" style="width: 16rem; background-color: {{$c->warna}};">
             <img src="/img/calon.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <p class="card-text">

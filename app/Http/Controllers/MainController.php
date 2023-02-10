@@ -30,7 +30,6 @@ class MainController extends Controller
         $pilihan = $request->input('nomor_calon');
         $nisn = $request->input('NISN');
 
-        dd($pilihan);
         $siswa = Siswa::firstWhere('nisn', $nisn);
         $siswa->sudah_memilih = 1;
         $siswa->pilihan = $pilihan;
