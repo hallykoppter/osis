@@ -17,9 +17,11 @@ class SiswaFactory extends Factory
      */
     public function definition()
     {
+        $data = ['7', '8', '9', 'A', 'B', 'C'];
+
         return [
             'nama' => $this->faker->name(),
-            'kelas' => '7A',
+            'kelas' => $data[rand(0,2)].$data[rand(3,5)],
             'foto' => 'default.jpg',
             'sudah_memilih' => 0,
             'pilihan' => 0,

@@ -10,12 +10,17 @@
 </head>
 <body>
 
+<?php
+    $rand = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+    $color = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
+?>
+
   <div class="pembungkus">
     <div class="content">
       <div class="title">
         <marquee>SILAKAN PILIH SALAH SATU CALON DI BAWAH INI!</marquee>
       </div>
-      <div class="info">
+      <div class="info" id="info" style="background-color: {{ $color }};">
         <div class="row g-3 align-items-center">
           <div class="col-lg ms-2">
             <img src="/img/profile.jpg" class="img-fluid">
@@ -29,12 +34,12 @@
       </div>
       <div class="calon">
         @foreach ( $calon as $c)
-        <a data-bs-toggle="modal" data-bs-target="#modal{{$c->id}}" id="link">
-        <div class="card text-light" id="card" style="width: 16rem; background-color: {{$c->warna}};">
+        <div data-bs-toggle="modal" data-bs-target="#modal{{$c->id}}" id="link">
+        <div class="card text-light" id="card" style="width: 19rem; background-color: {{$c->warna}};">
             <img src="/img/calon.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <p class="card-text">
-                    <h3>Calon Nomor : {{ $c->nomor }}</h3>
+                    <h3>Calon Nomor {{ $c->nomor }}</h3>
                 </p>
                 <p class="card-text border border-top-1">
                     <h5>{{ $c->nama1 }}</h5>
@@ -42,7 +47,7 @@
                 </p>
             </div>
         </div>
-        </a>
+        </div>
         @endforeach
       </div>
     </div>
@@ -82,5 +87,12 @@
   @endforeach
 
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+      document.ready( function()  {
+        const info = document.querySelector('#info');
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        document.info.sytle.backgroundColor = "#" + randomColor;
+    })
+  </script>
 </body>
 </html>

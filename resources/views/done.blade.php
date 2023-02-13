@@ -71,6 +71,41 @@
       }
     }
 
+    .powered-by {
+    padding: .7rem 0;
+    font-size: 1rem;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo-icon {
+        height: 80px;
+        width: 80px;
+        border: 1px solid #333;
+        margin: 0 0.45rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        font-size: 1.1rem;
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+
+    .logo-icon:hover {
+        background-color: #4481eb;
+        border-color: #4481eb;
+    }
+
+    .img-fluidd {
+        width: auto;
+        height: 60%;
+    }
+
   </style>
 </head>
 <body>
@@ -99,10 +134,18 @@
         </div>
 
         {{-- Progress Bar --}}
-        <div class="progress2 mx-auto progress-moved mt-5">
+        <div class="progress2 mx-auto progress-moved mt-2">
           <div class="progress-bar2"></div>
-         </div>
+        </div>
         {{-- End Progress Bar --}}
+
+        <div class="row text-center mt-2">
+        <p class="powered-by">Powered By</p>
+          <div class="logo">
+            <div class="logo-icon"><img src="/img/smp.png" alt="smp" class="img-fluidd"></div>
+            <div class="logo-icon"><img src="/img/osis.png" alt="osis" class="img-fluidd"></div>
+          </div>
+        </div>
 
   <script src="js/bootstrap.bundle.min.js"></script>
 </body>

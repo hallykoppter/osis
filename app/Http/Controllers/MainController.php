@@ -20,10 +20,6 @@ class MainController extends Controller
         return view('done');
     }
 
-    public function dashboard()
-    {
-        return view('admin.dashboard', ['title' => 'OSIS | Dashboard']);
-    }
 
     public function pilih(Request $request)
     {
@@ -36,5 +32,38 @@ class MainController extends Controller
         $siswa->save();
 
         return redirect('done');
+    }
+
+    public function admin()
+    {
+        $sudah_memilih = Siswa::where('sudah_memilih', 1)->count();
+        $belum_memilih = Siswa::where('sudah_memilih', 0)->count();
+        $jumlah_pemilih = Siswa::count();
+        $suara_digunakan = round(($sudah_memilih * 100) / $jumlah_pemilih) . "%";
+        $suara_tidak_digunakan = round(($belum_memilih * 100) / $jumlah_pemilih) . "%";
+        $data = [
+            'jumlah_pemilih' => $jumlah_pemilih,
+            'jumlah_calon' => Calon::count(),
+            'suara_digunakan' => $suara_digunakan,
+            'suara_tidak_digunakan' => $suara_tidak_digunakan
+        ];
+        return view('dashboard', ['title' => 'Dashboard'])->with($data);
+    }
+
+    public function siswa()
+    {
+        $data = [
+            'siswa' => Siswa::orderBy('kelas')->paginate(8),
+            'title' => 'Siswa'
+        ];
+        return view('admin.siswa')->with($data);
+    }
+
+    public function calon() {
+        $data = [
+            'calon' => Calon::orderBy('nomor')->get(),
+            'title' => 'Calon'
+        ];
+        return view('admin.calon')->with($data);
     }
 }

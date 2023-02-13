@@ -145,12 +145,18 @@ a {
     color: #fff;
 }
 
-.main-content {
+.main-navbar {
     width: 100%;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     align-items: center;
+}
+
+.main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .content {
@@ -214,4 +220,8 @@ a {
     margin-top: 10px;
     padding: 5px 0;
     box-sizing: border-box;
+}
+
+.isi {
+    margin: 1rem;
 }

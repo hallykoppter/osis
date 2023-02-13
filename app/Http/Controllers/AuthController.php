@@ -52,11 +52,6 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    public function admin()
-    {
-        return view('dashboard', ['title' => 'OSIS | Admin']);
-    }
-
     public function login_admin(Request $request)
     {
         $credentiials = $request->validate([

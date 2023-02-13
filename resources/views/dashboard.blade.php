@@ -2,10 +2,10 @@
 
 @section('container')
 <div class="content">
-  <div class="container">
+  <div class="isi">
 
     <div class="row">
-      <div class="col-lg-2 me-5">
+      <div class="col-lg-auto">
         <div class="info">
           <div class="head-info">
             <i class="fa-solid fa-users-rectangle"></i>
@@ -14,11 +14,11 @@
             Jumlah Pemilih
           </div>
           <div class="value">
-            100
+            {{$jumlah_pemilih}}
           </div>
         </div>
       </div>
-      <div class="col-lg-2 me-5">
+      <div class="col-lg-auto">
         <div class="info">
           <div class="head-info">
             <i class="fa-solid fa-users-rectangle"></i>
@@ -27,11 +27,11 @@
             Jumlah Calon
           </div>
           <div class="value">
-            3
+            {{$jumlah_calon}}
           </div>
         </div>
       </div>
-      <div class="col-lg-2 me-5">
+      <div class="col-lg-auto">
         <div class="info">
           <div class="head-info">
             <i class="fa-solid fa-users-rectangle"></i>
@@ -40,11 +40,11 @@
             Suara digunakan
           </div>
           <div class="value">
-            80%
+            {{$suara_digunakan}}
           </div>
         </div>
       </div>
-      <div class="col-lg-2 me-5">
+      <div class="col-lg-auto">
         <div class="info">
           <div class="head-info">
             <i class="fa-solid fa-users-rectangle"></i>
@@ -53,7 +53,7 @@
             Suara tidak digunakan
           </div>
           <div class="value">
-            20%
+            {{$suara_tidak_digunakan}}
           </div>
         </div>
       </div>

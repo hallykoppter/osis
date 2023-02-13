@@ -24,9 +24,13 @@ Route::post('/admin_login', [AuthController::class, 'login_admin']);
 
 Route::get('/main', [MainController::class, 'index'])->middleware('auth:user');
 Route::post('/pilih', [MainController::class, 'pilih']);
-Route::get('/done', [MainController::class, 'done']);
+Route::get('/done', [MainController::class, 'done'])->middleware('auth:user');
 
-Route::get('/dashboard', [AuthController::class, 'admin'])->middleware('auth:admin');
+Route::get('/dashboard', [MainController::class, 'admin'])->middleware('auth:admin');
+Route::get('/siswa', [MainController::class, 'siswa']);
+Route::get('/calon', [MainController::class, 'calon']);
+Route::get('/import-siswa', [CalonController::class, 'import_siswa']);
+Route::post('/import', [CalonController::class, 'import']);
 
 // Route::get('/', [AuthController::class, 'index'])->middleware('guest');
 // Route::post('/login', [AuthController::class, 'authentication']);

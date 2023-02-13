@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Calon;
 use App\Http\Requests\StoreCalonRequest;
 use App\Http\Requests\UpdateCalonRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\file;
 
 class CalonController extends Controller
 {
@@ -15,10 +17,18 @@ class CalonController extends Controller
      */
     public function index()
     {
+
+    }
+
+    public function import_siswa() {
         $data = [
-            'calon' => Calon::orderBy('nomor')->get(),
-            'title' => 'OSIS | Calon'
+            'title' => 'Siswa'
         ];
-        return view('admin.calon')->with($data);
+        return view('admin.import')->with($data);
+    }
+
+    public function import(Request $request) {
+        $file = $request->file('file')->store();
+        dd($file);
     }
 }
