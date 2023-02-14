@@ -29,8 +29,9 @@ Route::get('/done', [MainController::class, 'done'])->middleware('auth:user');
 Route::get('/dashboard', [MainController::class, 'admin'])->middleware('auth:admin');
 Route::get('/siswa', [MainController::class, 'siswa']);
 Route::get('/calon', [MainController::class, 'calon']);
-Route::get('/import-siswa', [CalonController::class, 'import_siswa']);
-Route::post('/import', [CalonController::class, 'import']);
+Route::get('/import-siswa', [SiswaController::class, 'import_siswa']);
+Route::post('/import', [SiswaController::class, 'import']);
+Route::get('/tambah-siswa', [SiswaController::class, 'tambah_siswa']);
 
 // Route::get('/', [AuthController::class, 'index'])->middleware('guest');
 // Route::post('/login', [AuthController::class, 'authentication']);

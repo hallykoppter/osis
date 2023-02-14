@@ -20,15 +20,4 @@ class CalonController extends Controller
 
     }
 
-    public function import_siswa() {
-        $data = [
-            'title' => 'Siswa'
-        ];
-        return view('admin.import')->with($data);
-    }
-
-    public function import(Request $request) {
-        $file = $request->file('file')->store();
-        dd($file);
-    }
 }

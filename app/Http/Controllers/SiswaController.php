@@ -10,11 +10,28 @@ class SiswaController extends Controller
     //
     public function index()
     {
+
+    }
+
+    public function tambah_siswa()
+    {
         $data = [
-            'siswa' => Siswa::paginate(7),
-            'title' => 'OSIS | Election'
+            'title' => 'Siswa'
         ];
-        return view('admin.siswa')->with($data);
+        return view('admin.tambah')->with($data);
+    }
+
+    public function import_siswa()
+    {
+        $data = [
+            'title' => 'Siswa'
+        ];
+        return view('admin.import')->with($data);
+    }
+
+    public function import(Request $request) {
+        $file = $request->file('file')->store();
+        dd($file);
     }
 }
 
