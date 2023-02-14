@@ -7,6 +7,9 @@
 
     <div class="row mt-3">
         <div class="col-lg-7">
+            <form action="/siswa" autocomplete="off" method="post" enctype="multipart/form-data">
+                @method('PUT')
+                @csrf
             <div class="mb-3 row">
                 <label for="inputEmail" class="col-sm-3 col-form-label">Nama</label>
                 <div class="col-sm-9">
@@ -36,7 +39,7 @@
             <div class="mb-3 row">
                 <div for="inputNISN" class="col-sm-3 col-form-label"">Password</div>
                 <div class="col-sm-9">
-                    <input type="file" class="form-control" name="password" id="file">
+                    <input type="text" class="form-control" name="password" id="file">
                 </div>
             </div>
             <div class="mb-3 row">
@@ -45,6 +48,11 @@
                     <input type="file" class="form-control" name="file" id="file">
                 </div>
             </div>
+            <div class="col-sm d-flex justify-content-end">
+                <a href="/siswa" class="btn btn-danger mx-2">Kembali</a>
+                <button type="submit" class="btn btn-primary">Tambah</button>
+            </div>
+        </form>
         </div>
         <div class="col-lg-auto">
             <div class="preview-image text-center">Preview</div>

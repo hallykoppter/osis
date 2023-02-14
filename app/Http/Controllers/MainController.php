@@ -50,20 +50,27 @@ class MainController extends Controller
         return view('dashboard', ['title' => 'Dashboard'])->with($data);
     }
 
-    public function siswa()
-    {
-        $data = [
-            'siswa' => Siswa::orderBy('kelas')->paginate(8),
-            'title' => 'Siswa'
-        ];
-        return view('admin.siswa')->with($data);
-    }
-
     public function calon() {
         $data = [
             'calon' => Calon::orderBy('nomor')->get(),
             'title' => 'Calon'
         ];
         return view('admin.calon')->with($data);
+    }
+
+    public function tambah_siswa()
+    {
+        $data = [
+            'title' => 'Siswa'
+        ];
+        return view('admin.tambah')->with($data);
+    }
+
+    public function import_siswa()
+    {
+        $data = [
+            'title' => 'Siswa'
+        ];
+        return view('admin.import')->with($data);
     }
 }

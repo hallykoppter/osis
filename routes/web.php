@@ -27,25 +27,11 @@ Route::post('/pilih', [MainController::class, 'pilih']);
 Route::get('/done', [MainController::class, 'done'])->middleware('auth:user');
 
 Route::get('/dashboard', [MainController::class, 'admin'])->middleware('auth:admin');
-Route::get('/siswa', [MainController::class, 'siswa']);
 Route::get('/calon', [MainController::class, 'calon']);
-Route::get('/import-siswa', [SiswaController::class, 'import_siswa']);
-Route::post('/import', [SiswaController::class, 'import']);
-Route::get('/tambah-siswa', [SiswaController::class, 'tambah_siswa']);
+Route::get('/import-siswa', [MainController::class, 'import_siswa']);
+Route::get('/tambah-siswa', [MainController::class, 'tambah_siswa']);
 
-// Route::get('/', [AuthController::class, 'index'])->middleware('guest');
-// Route::post('/login', [AuthController::class, 'authentication']);
-// Route::get('/admin', [AuthController::class, 'admin']);
-// Route::post('/admin', [AuthController::class, 'login_admin']);
-// Route::get('/dashboard', [MainController::class, 'dashboard']);
+Route::resource('/siswa', SiswaController::class)->middleware('auth:admin');
 
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/logout_admin', [AuthController::class, 'logout_admin']);
-
-// Route::post('/pilih', [MainController::class, 'pilih']);
-
-// // Route::get('/home', [MainController::class, 'index'])->middleware('auth');
-// Route::get('/home', [MainController::class, 'index']);
-
-// Route::get('/siswa', [SiswaController::class, 'index']);
-// Route::get('/calon', [CalonController::class, 'index']);

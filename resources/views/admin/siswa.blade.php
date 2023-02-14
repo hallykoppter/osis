@@ -8,7 +8,7 @@
             <h2>Daftar Calon</h2>
         </div>
         <div class="col-lg-auto d-flex justify-content-end align-items-center">
-            <a href="/tambah-siswa" class="btn btn-md btn-primary mx-1">Tambah Siswa</a>
+            <a href="/siswa/create" class="btn btn-md btn-primary mx-1">Tambah Siswa</a>
             <a href="/import-siswa" class="btn btn-md btn-success mx-1">Import Siswa</a>
         </div>
     </div>
