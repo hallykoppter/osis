@@ -16,7 +16,8 @@ class Siswa extends Authenticatable
         'foto',
         'NISN',
         'sudah_memilih',
-        'pilihan'
+        'pilihan',
+        'password'
     ];
 
     protected $guarded = ['id'];

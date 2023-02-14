@@ -8,12 +8,16 @@
     <div class="row mt-3">
         <div class="col-lg-7">
             <form action="/siswa" autocomplete="off" method="post" enctype="multipart/form-data">
-                @method('PUT')
                 @csrf
             <div class="mb-3 row">
-                <label for="inputEmail" class="col-sm-3 col-form-label">Nama</label>
+                <label for="nama" class="col-sm-3 col-form-label">Nama</label>
                 <div class="col-sm-9">
-                    <input type="text" id="inputEmail" class="form-control" name="nama">
+                    <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" name="nama">
+                    @error('nama')
+                        <div class="invalid-feedback">
+                        {{$message}}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="mb-3 row">
@@ -33,28 +37,43 @@
             <div class="mb-3 row">
                 <label for="inputNISN" class="col-sm-3 col-form-label">NISN</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputNISN">
+                    <input type="text" name="NISN" class="form-control @error('NISN') is-invalid @enderror" id="inputNISN">
+                    @error('NISN')
+                        <div class="invalid-feedback">
+                        {{$message}}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="mb-3 row">
-                <div for="inputNISN" class="col-sm-3 col-form-label"">Password</div>
+                <div for="password" class="col-sm-3 col-form-label"">Password</div>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" name="password" id="file">
+                    <input type="text" class="form-control @error('password') is-invalid @enderror" name="password" id="password">
+                    @error('password')
+                        <div class="invalid-feedback">
+                        {{$message}}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="mb-3 row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-9">
-                    <input type="file" class="form-control" name="file" id="file">
+                    <input type="file" class="form-control @error('file') is-invalid @enderror" name="file" id="file">
+                    @error('file')
+                        <div class="invalid-feedback">
+                        {{$message}}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm d-flex justify-content-end">
                 <a href="/siswa" class="btn btn-danger mx-2">Kembali</a>
                 <button type="submit" class="btn btn-primary">Tambah</button>
             </div>
-        </form>
+          </form>
         </div>
-        <div class="col-lg-auto">
+        <div class="col-lg">
             <div class="preview-image text-center">Preview</div>
         </div>
     </div>

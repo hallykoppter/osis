@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Siswa;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class SiswaController extends Controller
 {
@@ -43,7 +44,19 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'nama' => 'required',
+            'kelas' => 'required',
+            'NISN' => 'required|unique:siswas',
+            'password' => 'required'
+        ]);
+        $validate['foto'] = 'default.jpg';
+        $validate['password'] = Hash::make($request->password);
+        $validate['sudah_memilih'] = 0;
+        $validate['pilihan'] = 0;
+
+        Siswa::create($validate);
+        return redirect('siswa');
     }
 
     /**
