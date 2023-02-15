@@ -16,7 +16,7 @@ class AuthController extends Controller
     {
         $credentiials = $request->validate(
             [
-                'NISN' => 'required|integer',
+                'NISN' => 'required',
                 'password' => 'required'
             ]
         );

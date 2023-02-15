@@ -1,4 +1,4 @@
-{{header("Refresh:10; url=/logout");}}
+{{-- {{header("Refresh:10; url=/logout");}} --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +72,7 @@
     }
 
     .powered-by {
-    padding: .7rem 0;
+    padding: 0;
     font-size: 1rem;
     }
 
@@ -139,7 +139,7 @@
         </div>
         {{-- End Progress Bar --}}
 
-        <div class="row text-center mt-2">
+        <div class="row text-center mt-1">
         <p class="powered-by">Powered By</p>
           <div class="logo">
             <div class="logo-icon"><img src="/img/smp.png" alt="smp" class="img-fluidd"></div>

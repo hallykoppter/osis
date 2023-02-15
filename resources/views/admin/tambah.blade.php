@@ -57,9 +57,9 @@
                 </div>
             </div>
             <div class="mb-3 row">
-                <div class="col-sm-3"></div>
+                <div class="col-sm-3">Foto</div>
                 <div class="col-sm-9">
-                    <input type="file" class="form-control @error('file') is-invalid @enderror" name="file" id="file">
+                    <input type="file" class="form-control @error('file') is-invalid @enderror" name="foto" id="image" onchange="previewImage()">
                     @error('file')
                         <div class="invalid-feedback">
                         {{$message}}
@@ -73,10 +73,28 @@
             </div>
           </form>
         </div>
-        <div class="col-lg">
-            <div class="preview-image text-center">Preview</div>
+        <div class="col-lg d-flex justify-content-center">
+           <img class="img-preview img-fluid">
         </div>
     </div>
 </div>
 
+    <script>
+        // Preview Image
+    function previewImage() {
+
+    const image = document.querySelector('#image');
+    const imgPrev = document.querySelector('.img-preview');
+
+    imgPrev.style.display = 'flex';
+
+    const oFReader = new FileReader();
+
+    oFReader.readAsDataURL(image.files[0]);
+
+    oFReader.onload = function(oFREvent) {
+        imgPrev.src = oFREvent.target.result;
+        }
+    }
+    </script>
 @endsection

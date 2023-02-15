@@ -6,6 +6,10 @@ use App\Models\Siswa;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\SiswaImport;
+use App\Exports\SiswaExport;
 
 class SiswaController extends Controller
 {
@@ -101,7 +105,30 @@ class SiswaController extends Controller
      */
     public function destroy(Siswa $siswa)
     {
+        Siswa::destroy($siswa->id);
 
+        return redirect('/siswa');
+    }
+
+    public function truncate() {
+
+        DB::table('siswas')->truncate();
+
+        return redirect('/siswa');
+    }
+
+    public function import(Request $request)
+    {
+
+        Excel::import(new SiswaImport, $request->file);
+
+        return redirect('/siswa');
+
+    }
+
+    public function export()
+    {
+        return Excel::download(new SiswaExport, 'siswa.xlsx');
     }
 
 }

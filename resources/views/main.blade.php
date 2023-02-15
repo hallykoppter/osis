@@ -23,7 +23,7 @@
       <div class="info" id="info" style="background-color: {{ $color }};">
         <div class="row g-3 align-items-center">
           <div class="col-lg ms-2">
-            <img src="/img/profile.jpg" class="img-fluid">
+            <img src="img/siswa/{{auth()->guard('user')->user()->foto}}" width="110px" onerror="this.onerror=null; this.src='/img/profile.jpg'" class="img-fluid">
           </div>
           <div class="col-lg-8">
             <input type="text" readonly class="form-control-plaintext ms-1 fw-bold text-light" id="staticEmail2" value="{{ auth()->guard('user')->user()->nama }}">

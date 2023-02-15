@@ -10,7 +10,7 @@
         </div>
         <div class="card-body bg-success-subtle">
           <p class="card-text">Silahkan download file import siswa di bawah ini.</p>
-          <a href="file/import.xlsx" class="btn btn-primary">Download</a>
+          <a href="file/import_siswa.xlsx" class="btn btn-primary">Download</a>
         </div>
       </div>
     </div>

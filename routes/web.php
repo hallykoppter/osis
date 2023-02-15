@@ -30,8 +30,11 @@ Route::get('/dashboard', [MainController::class, 'admin'])->middleware('auth:adm
 Route::get('/calon', [MainController::class, 'calon']);
 Route::get('/import-siswa', [MainController::class, 'import_siswa']);
 Route::get('/tambah-siswa', [MainController::class, 'tambah_siswa']);
+Route::get('/export-siswa', [SiswaController::class, 'export']);
 
 Route::resource('/siswa', SiswaController::class)->middleware('auth:admin');
+Route::post('/truncate', [SiswaController::class, 'truncate']);
+Route::post('/import', [SiswaController::class, 'import']);
 
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/logout_admin', [AuthController::class, 'logout_admin']);
