@@ -12,7 +12,7 @@
             <div class="mb-3 row">
                 <label for="nama" class="col-sm-3 col-form-label">Nama</label>
                 <div class="col-sm-9">
-                    <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" name="nama">
+                    <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{old('nama')}}">
                     @error('nama')
                         <div class="invalid-feedback">
                         {{$message}}
@@ -37,7 +37,7 @@
             <div class="mb-3 row">
                 <label for="inputNISN" class="col-sm-3 col-form-label">NISN</label>
                 <div class="col-sm-9">
-                    <input type="text" name="NISN" class="form-control @error('NISN') is-invalid @enderror" id="inputNISN">
+                    <input type="text" name="NISN" class="form-control @error('NISN') is-invalid @enderror" id="inputNISN" value="{{old('NISN')}}">
                     @error('NISN')
                         <div class="invalid-feedback">
                         {{$message}}
@@ -73,7 +73,7 @@
             </div>
           </form>
         </div>
-        <div class="col-lg d-flex justify-content-center">
+        <div class="col-lg d-flex justify-content-center border border-5 me-2 p-2">
            <img class="img-preview img-fluid">
         </div>
     </div>
