@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Calon;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\SiswaImport;
+use App\Exports\SiswaExport;
 
 class CalonController extends Controller
 {
@@ -14,7 +20,11 @@ class CalonController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'calon' => Calon::orderBy('nomor')->get(),
+            'title' => 'Calon'
+        ];
+        return view('admin.calon')->with($data);
     }
 
     /**

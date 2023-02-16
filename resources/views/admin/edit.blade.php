@@ -75,7 +75,9 @@
           </form>
         </div>
         <div class="col-lg d-flex justify-content-center">
-           <img class="img-preview img-fluid" src="img/siswa/{{$siswa->foto}}" onerror="this.onerror=null; this.src='/img/profile.jpg'">
+            <div class="col-sm-8">
+                <img class="img-preview img-fluid" src="img/siswa/{{$siswa->foto}}" onerror="this.onerror=null; this.src='/img/default_profile.png'">
+            </div>
         </div>
     </div>
 </div>

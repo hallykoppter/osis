@@ -156,4 +156,19 @@ class SiswaController extends Controller
         return Excel::download(new SiswaExport, 'siswa.xlsx');
     }
 
+    public function tambah_siswa()
+    {
+        $data = [
+            'title' => 'Siswa'
+        ];
+        return view('admin.tambah')->with($data);
+    }
+
+    public function import_siswa()
+    {
+        $data = [
+            'title' => 'Siswa'
+        ];
+        return view('admin.import')->with($data);
+    }
 }

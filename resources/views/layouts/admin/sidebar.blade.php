@@ -2,7 +2,7 @@
 <div class="sidebar" id="sidebar">
   <div class="header">
     <div class="list-item">
-      <a href="#">
+      <a href="/dashboard">
         <i class="fa-solid fa-check-to-slot"></i>
         <span class="title">e-Lection</span>
       </a>
