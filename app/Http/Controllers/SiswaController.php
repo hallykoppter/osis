@@ -37,7 +37,7 @@ class SiswaController extends Controller
         $data = [
             'title' => 'Siswa'
         ];
-        return view('admin.tambah')->with($data);
+        return view('admin.tambah_siswa')->with($data);
     }
 
     /**
@@ -86,7 +86,7 @@ class SiswaController extends Controller
             'title' => 'Siswa',
             'siswa' => Siswa::find($siswa->id)
         ];
-        return view('admin.edit')->with($data);
+        return view('admin.edit_siswa')->with($data);
     }
 
     /**
@@ -154,14 +154,6 @@ class SiswaController extends Controller
     public function export()
     {
         return Excel::download(new SiswaExport, 'siswa.xlsx');
-    }
-
-    public function tambah_siswa()
-    {
-        $data = [
-            'title' => 'Siswa'
-        ];
-        return view('admin.tambah')->with($data);
     }
 
     public function import_siswa()

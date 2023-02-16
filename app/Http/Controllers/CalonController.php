@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\SiswaImport;
-use App\Exports\SiswaExport;
+
 
 class CalonController extends Controller
 {
@@ -34,7 +33,10 @@ class CalonController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => 'Calon'
+        ];
+        return view('admin.tambah_calon')->with($data);
     }
 
     /**
@@ -45,7 +47,7 @@ class CalonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -91,5 +93,12 @@ class CalonController extends Controller
     public function destroy(Calon $calon)
     {
         //
+    }
+
+    public function truncate() {
+
+        DB::table('calons')->truncate();
+
+        return redirect('/calon');
     }
 }

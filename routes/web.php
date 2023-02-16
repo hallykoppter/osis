@@ -32,20 +32,20 @@ Route::middleware('auth:user')->group(function() {
 
 Route::middleware('auth:admin')->group(function(){
     // Dashboard
-    Route::get('/dashboard', [MainController::class, 'admin ']);
+    Route::get('/dashboard', [MainController::class, 'admin']);
 
 
     // Siswa
     Route::get('/import-siswa', [SiswaController::class, 'import_siswa']);
-    Route::get('/tambah-siswa', [SiswaController::class, 'tambah_siswa']);
     Route::get('/export-siswa', [SiswaController::class, 'export']);
     Route::resource('/siswa', SiswaController::class);
-    Route::post('/truncate', [SiswaController::class, 'truncate']);
+    Route::post('/siswa/truncate', [SiswaController::class, 'truncate']);
     Route::post('/import', [SiswaController::class, 'import']);
 
     // Calon
 
     Route::resource('/calon', CalonController::class);
+    Route::post('/calon/truncate', [CalonController::class, 'truncate']);
 });
 
 // Logout

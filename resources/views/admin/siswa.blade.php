@@ -9,7 +9,7 @@
         </div>
         <div class="col-lg-auto d-flex justify-content-end align-items-center">
             <a href="/siswa/create" class="btn btn-sm btn-primary ms-1">Tambah Siswa</a>
-            <form action="/truncate" method="post">
+            <form action="/siswa/truncate" method="post">
                 @csrf
                 <button onclick="return confirm('yakin menghapus semua data?')" type="submit" class="btn btn-danger btn-sm ms-1">Hapus Semua</button>
             </form>
