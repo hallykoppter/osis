@@ -19,17 +19,22 @@ use GuzzleHttp\Middleware;
 */
 
 Route::get('/', [AuthController::class, 'index'])->middleware('guest')->name('login');
+
+// Login
 Route::post('/login', [AuthController::class, 'authentication']);
 Route::post('/admin_login', [AuthController::class, 'login_admin']);
 
-Route::get('/main', [MainController::class, 'index'])->middleware('auth:user');
-Route::post('/pilih', [MainController::class, 'pilih']);
-Route::get('/done', [MainController::class, 'done'])->middleware('auth:user');
-
-Route::get('/dashboard', [MainController::class, 'admin'])->middleware('auth:admin');
-Route::get('/calon', [MainController::class, 'calon']);
+Route::middleware('auth:user')->group(function() {
+    Route::get('/main', [MainController::class, 'index']);
+    Route::get('/done', [MainController::class, 'done']);
+    Route::post('/pilih', [MainController::class, 'pilih']);
+});
 
 Route::middleware('auth:admin')->group(function(){
+    // Dashboard
+    Route::get('/dashboard', [MainController::class, 'admin ']);
+
+
     // Siswa
     Route::get('/import-siswa', [SiswaController::class, 'import_siswa']);
     Route::get('/tambah-siswa', [SiswaController::class, 'tambah_siswa']);
@@ -43,6 +48,6 @@ Route::middleware('auth:admin')->group(function(){
     Route::resource('/calon', CalonController::class);
 });
 
-
+// Logout
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/logout_admin', [AuthController::class, 'logout_admin']);
