@@ -71,7 +71,7 @@ class SiswaController extends Controller
      */
     public function show(Siswa $siswa)
     {
-        //
+
     }
 
     /**
@@ -82,7 +82,11 @@ class SiswaController extends Controller
      */
     public function edit(Siswa $siswa)
     {
-        //
+        $data = [
+            'title' => 'Siswa',
+            'siswa' => Siswa::find($siswa->id)
+        ];
+        return view('admin.edit')->with($data);
     }
 
     /**
@@ -94,8 +98,29 @@ class SiswaController extends Controller
      */
     public function update(Request $request, Siswa $siswa)
     {
-        //
+        $validate = [
+            'nama' => 'required',
+            'kelas' => 'required',
+        ];
+
+        if($request->NISN != $siswa->NISN) {
+            $validate['NISN'] = 'required|unique:Siswas';
+        }
+        $validate = $request->validate($validate);
+
+        if($request->foto != null) {
+            $validate['foto'] = $request->foto;
+        }
+        if($request->password != null) {
+            $validate['password'] = Hash::make($request->password);
+        }
+
+        Siswa::where('id', $siswa->id)
+                ->update($validate);
+
+        return redirect('/siswa');
     }
+
 
     /**
      * Remove the specified resource from storage.
