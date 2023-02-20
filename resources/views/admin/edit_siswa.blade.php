@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="isi">
-    <h2>Tambah Data Siswa</h2>
+    <h2>Edit Data</h2>
 
     <div class="row mt-3">
         <div class="col-lg-7">
@@ -13,7 +13,7 @@
             <div class="mb-3 row">
                 <label for="nama" class="col-sm-3 col-form-label">Nama</label>
                 <div class="col-sm-9">
-                    <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{$siswa->nama}}">
+                    <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama' ,$siswa->nama)}}">
                     @error('nama')
                         <div class="invalid-feedback">
                         {{$message}}
@@ -25,20 +25,20 @@
                 <label for="inputKelas" class="col-sm-3 col-form-label">Kelas</label>
                 <div class="col-sm-9">
                     <select class="form-select" id="inputKelas" aria-label="Default select example" name="kelas">
-                        <option <?php if($siswa->kelas == '7A') { echo 'selected';} ?> value="7A">7A</option>
-                        <option <?php if($siswa->kelas == '7B') { echo 'selected';} ?> value="7B">7B</option>
-                        <option <?php if($siswa->kelas == '8A') { echo 'selected';} ?> value="8A">8A</option>
-                        <option <?php if($siswa->kelas == '8B') { echo 'selected';} ?> value="8B">8B</option>
-                        <option <?php if($siswa->kelas == '9A') { echo 'selected';} ?> value="9A">9A</option>
-                        <option <?php if($siswa->kelas == '9B') { echo 'selected';} ?> value="9B">9B</option>
-                        <option <?php if($siswa->kelas == '9C') { echo 'selected';} ?> value="9C">9C</option>
+                        <option <?php if(old('kelas' == '7A')) { echo 'selected';} elseif($siswa->kelas == '7A') { echo 'selected';} ?> value="7A">7A</option>
+                        <option <?php if(old('kelas' == '7B')) { echo 'selected';} elseif($siswa->kelas == '7B') { echo 'selected';} ?> value="7B">7B</option>
+                        <option <?php if(old('kelas' == '8A')) { echo 'selected';} elseif($siswa->kelas == '8A') { echo 'selected';} ?> value="8A">8A</option>
+                        <option <?php if(old('kelas' == '8B')) { echo 'selected';} elseif($siswa->kelas == '8B') { echo 'selected';} ?> value="8B">8B</option>
+                        <option <?php if(old('kelas' == '9A')) { echo 'selected';} elseif($siswa->kelas == '9A') { echo 'selected';} ?> value="9A">9A</option>
+                        <option <?php if(old('kelas' == '9B')) { echo 'selected';} elseif($siswa->kelas == '9B') { echo 'selected';} ?> value="9B">9B</option>
+                        <option <?php if(old('kelas' == '9C')) { echo 'selected';} elseif($siswa->kelas == '9C') { echo 'selected';} ?> value="9C">9C</option>
                     </select>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="inputNISN" class="col-sm-3 col-form-label">NISN</label>
                 <div class="col-sm-9">
-                    <input type="text" name="NISN" class="form-control @error('NISN') is-invalid @enderror" id="inputNISN" value="{{$siswa->NISN}}">
+                    <input type="text" name="NISN" class="form-control @error('NISN') is-invalid @enderror" id="inputNISN" value="{{ old('NISN', $siswa->NISN)}}">
                     @error('NISN')
                         <div class="invalid-feedback">
                         {{$message}}
@@ -75,8 +75,9 @@
           </form>
         </div>
         <div class="col-lg d-flex justify-content-center">
+            <input type="hidden" value="{{ $siswa->foto }}" name="oldImage">
             <div class="col-sm-8">
-                <img class="img-preview img-fluid" src="img/siswa/{{$siswa->foto}}" onerror="this.onerror=null; this.src='/img/default_profile.png'">
+                <img class="img-preview img-fluid" src="{{ asset('storage/'. $siswa->foto) }}" onerror="this.onerror=null; this.src='/img/default_profile.png'">
             </div>
         </div>
     </div>

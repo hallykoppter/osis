@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('foto');
             $table->integer('sudah_memilih');
             $table->integer('pilihan');
-            $table->integer('NISN')->unique();
+            $table->string('NISN')->unique();
             $table->string('password');
         });
     }

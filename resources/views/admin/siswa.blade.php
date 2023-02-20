@@ -13,6 +13,10 @@
                 @csrf
                 <button onclick="return confirm('yakin menghapus semua data?')" type="submit" class="btn btn-danger btn-sm ms-1">Hapus Semua</button>
             </form>
+            <form action="/siswa/reset" method="post">
+                @csrf
+                <button onclick="return confirm('yakin mereseet semua data?')" type="submit" class="btn btn-warning btn-sm ms-1 text-light">Reset Semua</button>
+            </form>
             <a href="/export-siswa" class="btn btn-sm btn-success ms-1">Download</a>
             <a href="/import-siswa" class="btn btn-sm btn-success ms-1">Import Siswa</a>
             {{-- <button class="btn btn-sm btn-warning ms-1" onclick="printDiv('table')">Print Table</button> --}}

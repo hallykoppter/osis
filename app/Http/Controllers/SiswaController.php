@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\SiswaImport;
 use App\Exports\SiswaExport;
@@ -52,13 +53,18 @@ class SiswaController extends Controller
             'nama' => 'required',
             'kelas' => 'required',
             'NISN' => 'required|unique:siswas',
-            'password' => 'required'
+            'password' => 'required',
+            'foto' => 'file|max:2048|mimes:jpg,jpeg,png'
         ]);
-        $validate['foto'] = 'default.jpg';
+        if ($request->file('foto')) {
+            $extension = $request->file('foto')->extension();
+            $validate['foto'] = $request->file('foto')->storeAs('siswas', $request->NISN.'.'.$extension);
+        } else {
+            $validate['foto'] = 'default.jpg';
+        }
         $validate['password'] = Hash::make($request->password);
         $validate['sudah_memilih'] = 0;
         $validate['pilihan'] = 0;
-
         Siswa::create($validate);
         return redirect('siswa');
     }
@@ -101,6 +107,7 @@ class SiswaController extends Controller
         $validate = [
             'nama' => 'required',
             'kelas' => 'required',
+            'foto' => 'file|max:2048|mimes:jpg,jpeg,png'
         ];
 
         if($request->NISN != $siswa->NISN) {
@@ -108,9 +115,16 @@ class SiswaController extends Controller
         }
         $validate = $request->validate($validate);
 
-        if($request->foto != null) {
-            $validate['foto'] = $request->foto;
+        if($request->file('foto')) {
+            // jika ada file -> Delete
+            if($request->oldImage) {
+                Storage::delete($siswa->foto);
+            }
+            // Upload file baru
+            $extension = $request->file('foto')->extension();
+            $validate['foto'] = $request->file('foto')->storeAs('siswas', $request->NISN.'.'.$extension);
         }
+
         if($request->password != null) {
             $validate['password'] = Hash::make($request->password);
         }
@@ -131,6 +145,7 @@ class SiswaController extends Controller
     public function destroy(Siswa $siswa)
     {
         Siswa::destroy($siswa->id);
+        Storage::delete($siswa->foto);
 
         return redirect('/siswa');
     }
@@ -162,5 +177,14 @@ class SiswaController extends Controller
             'title' => 'Siswa'
         ];
         return view('admin.import')->with($data);
+    }
+
+    public function reset()
+    {
+        Siswa::query()->update([
+            'sudah_memilih' => 0,
+            'pilihan' => 0
+        ]);
+        return redirect('/siswa');
     }
 }

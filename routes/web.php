@@ -41,6 +41,7 @@ Route::middleware('auth:admin')->group(function(){
     Route::resource('/siswa', SiswaController::class);
     Route::post('/siswa/truncate', [SiswaController::class, 'truncate']);
     Route::post('/import', [SiswaController::class, 'import']);
+    Route::post('/siswa/reset', [SiswaController::class, 'reset']);
 
     // Calon
 
