@@ -1,4 +1,4 @@
-{{-- {{header("Refresh:10; url=/logout");}} --}}
+{{header("Refresh:7; url=/logout");}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +26,7 @@
 
     .progress-moved .progress-bar2 {
       background-color: #f3c623;
-      animation: progress 10s;
+      animation: progress 7s;
     }
 
     @keyframes progress {

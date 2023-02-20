@@ -47,7 +47,17 @@ class CalonController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $validate = $request->validate([
+            'nama1' => 'required',
+            'nama2' => 'required',
+            'nomor' => 'required|unique:calons',
+            'warna' => 'required'
+        ]);
+        $validate['jumlah_suara'] = 0;
+
+        Calon::create($validate);
+        return redirect('/calon');
+
     }
 
     /**
@@ -92,7 +102,9 @@ class CalonController extends Controller
      */
     public function destroy(Calon $calon)
     {
-        //
+        Calon::destroy($calon->id);
+
+        return redirect('/calon');
     }
 
     public function truncate() {

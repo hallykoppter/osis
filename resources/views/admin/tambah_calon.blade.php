@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="col-sm d-flex justify-content-end">
-                <a href="/siswa" class="btn btn-danger mx-2">Kembali</a>
+                <a href="/calon" class="btn btn-danger mx-2">Kembali</a>
                 <button type="submit" class="btn btn-primary">Tambah</button>
             </div>
           </form>

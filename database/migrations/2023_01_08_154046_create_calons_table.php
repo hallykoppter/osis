@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('nama1');
             $table->string('nama2');
             $table->integer('nomor');
-            $table->text('visi');
-            $table->text('misi');
-            $table->string('foto');
+            $table->text('visi')->nullable();
+            $table->text('misi')->nullable();
+            $table->string('foto')->nullable();
             $table->string('warna');
             $table->integer('jumlah_suara');
         });
