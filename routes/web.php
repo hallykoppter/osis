@@ -24,6 +24,7 @@ Route::get('/', [AuthController::class, 'index'])->middleware('guest')->name('lo
 Route::post('/login', [AuthController::class, 'authentication']);
 Route::post('/admin_login', [AuthController::class, 'login_admin']);
 
+// Pemilihan
 Route::middleware('auth:user')->group(function() {
     Route::get('/main', [MainController::class, 'index']);
     Route::get('/done', [MainController::class, 'done']);
@@ -42,9 +43,9 @@ Route::middleware('auth:admin')->group(function(){
     Route::post('/siswa/truncate', [SiswaController::class, 'truncate']);
     Route::post('/import', [SiswaController::class, 'import']);
     Route::post('/siswa/reset', [SiswaController::class, 'reset']);
+    Route::post('/batch_upload', [SiswaController::class, 'batch_image']);
 
     // Calon
-
     Route::resource('/calon', CalonController::class);
     Route::post('/calon/truncate', [CalonController::class, 'truncate']);
 });

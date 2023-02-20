@@ -188,6 +188,9 @@ return [
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
+        // Laravel-ZIP
+        ZanySoft\Zip\ZipServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -196,6 +199,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
 
     ],
 
@@ -212,6 +216,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Zip' => ZanySoft\Zip\ZipFacade::class
     ])->toArray(),
 
 ];

@@ -27,7 +27,7 @@
     <div class="col-lg mt-4">
     <div id="table">
     <table class="table table-bordered table-sm">
-        <thead>
+        <thead class="bg-dark text-light">
           <tr>
             <th class="text-center" scope="col">No</th>
             <th class="text-center" scope="col">Nama</th>

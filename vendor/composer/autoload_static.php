@@ -44,6 +44,7 @@ class ComposerStaticInit43a723dc24d67959fafdbede5e808ea5
         'Z' => 
         array (
             'ZipStream\\' => 10,
+            'ZanySoft\\Zip\\' => 13,
         ),
         'W' => 
         array (
@@ -187,6 +188,10 @@ class ComposerStaticInit43a723dc24d67959fafdbede5e808ea5
         'ZipStream\\' => 
         array (
             0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
+        ),
+        'ZanySoft\\Zip\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zanysoft/laravel-zip/src',
         ),
         'Whoops\\' => 
         array (
@@ -552,6 +557,7 @@ class ComposerStaticInit43a723dc24d67959fafdbede5e808ea5
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Exports\\SiswaExport' => __DIR__ . '/../..' . '/app/Exports/SiswaExport.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\CalonController' => __DIR__ . '/../..' . '/app/Http/Controllers/CalonController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -571,6 +577,7 @@ class ComposerStaticInit43a723dc24d67959fafdbede5e808ea5
         'App\\Http\\Requests\\StoreCalonRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreCalonRequest.php',
         'App\\Http\\Requests\\UpdateAdminRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateAdminRequest.php',
         'App\\Http\\Requests\\UpdateCalonRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateCalonRequest.php',
+        'App\\Imports\\SiswaImport' => __DIR__ . '/../..' . '/app/Imports/SiswaImport.php',
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Calon' => __DIR__ . '/../..' . '/app/Models/Calon.php',
         'App\\Models\\Siswa' => __DIR__ . '/../..' . '/app/Models/Siswa.php',
@@ -6661,6 +6668,10 @@ class ComposerStaticInit43a723dc24d67959fafdbede5e808ea5
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'ZanySoft\\Zip\\Facades\\Zip' => __DIR__ . '/..' . '/zanysoft/laravel-zip/src/Facades/Zip.php',
+        'ZanySoft\\Zip\\Zip' => __DIR__ . '/..' . '/zanysoft/laravel-zip/src/Zip.php',
+        'ZanySoft\\Zip\\ZipManager' => __DIR__ . '/..' . '/zanysoft/laravel-zip/src/ZipManager.php',
+        'ZanySoft\\Zip\\ZipServiceProvider' => __DIR__ . '/..' . '/zanysoft/laravel-zip/src/ZipServiceProvider.php',
         'ZipStream\\Bigint' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Bigint.php',
         'ZipStream\\DeflateStream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/DeflateStream.php',
         'ZipStream\\Exception' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Exception.php',

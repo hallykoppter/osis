@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\SiswaImport;
 use App\Exports\SiswaExport;
+use Zip;
 
 class SiswaController extends Controller
 {
@@ -22,7 +23,7 @@ class SiswaController extends Controller
     public function index()
     {
         $data = [
-            'siswa' => Siswa::orderBy('kelas')->paginate(8),
+            'siswa' => Siswa::orderBy('kelas')->paginate(10),
             'title' => 'Siswa'
         ];
         return view('admin.siswa')->with($data);
@@ -185,6 +186,21 @@ class SiswaController extends Controller
             'sudah_memilih' => 0,
             'pilihan' => 0
         ]);
+        return redirect('/siswa');
+    }
+
+    public function batch_image(Request $request, Siswa $siswa)
+    {
+        $validate = $request->validate([
+                'batch_image' => 'file|max:10240|required'
+            ]);
+        if('storage/batch/batch_image.zip' != null){
+            Storage::delete('batch/batch/batch_image.zip');
+        }
+        $file = $request->file('batch_image')->storeAs('batch', 'batch_image.zip');
+        $zip = Zip::open('storage/'. $file);
+        $zip->extract('storage/siswas');
+
         return redirect('/siswa');
     }
 }
