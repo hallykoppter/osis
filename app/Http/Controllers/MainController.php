@@ -39,13 +39,11 @@ class MainController extends Controller
         $sudah_memilih = Siswa::where('sudah_memilih', 1)->count();
         $belum_memilih = Siswa::where('sudah_memilih', 0)->count();
         $jumlah_pemilih = Siswa::count();
-        $sudah_memilih === 0 ? $suara_digunakan = 0 . '%' : $suara_digunakan = round(($sudah_memilih * 100) / $jumlah_pemilih) . "%";
-        $belum_memilih === 0 ? $suara_tidak_digunakan = 0 . '%' : $suara_tidak_digunakan = round(($belum_memilih * 100) / $jumlah_pemilih) . "%";
         $data = [
             'jumlah_pemilih' => $jumlah_pemilih,
             'jumlah_calon' => Calon::count(),
-            'suara_digunakan' => $suara_digunakan,
-            'suara_tidak_digunakan' => $suara_tidak_digunakan
+            'suara_digunakan' => $sudah_memilih,
+            'suara_tidak_digunakan' => $belum_memilih
         ];
         return view('dashboard', ['title' => 'Dashboard'])->with($data);
     }

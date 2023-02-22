@@ -67,10 +67,8 @@
         </div>
         <div class="modal-body">
           <h5 class="text-center">Visi</h5>
-          <p>{{$c->visi}}</p>
+          <p>{{$c->visi_misi}}</p>
           <hr>
-          <h5 class="text-center">Misi</h5>
-          <p>{{$c->misi}}</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

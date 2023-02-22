@@ -13,8 +13,7 @@ class Calon extends Model
         'nama1',
         'nama2',
         'nomor',
-        'visi',
-        'misi',
+        'visi_misi',
         'foto',
         'warna',
         'jumlah_suara'

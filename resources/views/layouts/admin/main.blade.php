@@ -13,6 +13,14 @@
   <!-- Fontawesome -->
   <script src="https://kit.fontawesome.com/ed17974c3a.js" crossorigin="anonymous"></script>
 
+    {{-- Trix --}}
+    <link rel="stylesheet" type="text/css" href="/css/trix.css">
+    <script type="text/javascript" src="/js/trix.umd.min.js"></script>
+    <style>
+    trix-toolbar [data-trix-button-group="file-tools"] {
+        display: none;
+    }
+    </style>
 </head>
 <body>
   <div class="cont">
@@ -37,6 +45,11 @@
 
   </div>
 
+  <script>
+    document.addEventListener('trix-file-accept', function(e){
+        e.preventDefault();
+    });
+  </script>
   <script src="js/admin_script.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
 </body>

@@ -225,3 +225,8 @@ a {
 .isi {
     margin: 1rem;
 }
+
+.keep-ratio{
+    max-height: 200px;
+}
+

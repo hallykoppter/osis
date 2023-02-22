@@ -50,14 +50,19 @@ class CalonController extends Controller
         $validate = $request->validate([
             'nama1' => 'required',
             'nama2' => 'required',
-            'nomor' => 'required|unique:calons',
-            'warna' => 'required'
+            'nomor' => 'required|unique:calons,nomor',
+            'warna' => 'required|unique:calons,warna',
+            'visi_misi' => 'required',
+            'foto' => 'required|file|max:2042'
         ]);
         $validate['jumlah_suara'] = 0;
+        if($request->file('foto')){
+            $path = $request->file('foto')->store('calons');
+            $validate['foto'] = $path;
+        }
 
         Calon::create($validate);
         return redirect('/calon');
-
     }
 
     /**
@@ -79,7 +84,12 @@ class CalonController extends Controller
      */
     public function edit(Calon $calon)
     {
-        //
+        $data = [
+            'title' => 'Calon',
+            'calon' => Calon::find($calon->id)
+        ];
+
+        return view('admin.edit_calon')->with($data);
     }
 
     /**

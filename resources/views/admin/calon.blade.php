@@ -38,7 +38,7 @@
             <td class="text-center">{{$c->nomor}}</td>
             <td class="text-center">{{$c->jumlah_suara}}</td>
             <td class="text-center">
-                <a href="#{{$c->id}}" class="btn btn-sm btn-success">Edit</a>
+                <a href="/calon/{{$c->id}}/edit" class="btn btn-sm btn-success">Edit</a>
                 <form action="/calon/{{$c->id }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf

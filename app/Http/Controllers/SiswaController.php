@@ -50,10 +50,11 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
+
         $validate = $request->validate([
             'nama' => 'required',
             'kelas' => 'required',
-            'NISN' => 'required|unique:siswas',
+            'NISN' => 'required|unique:siswas,NISN',
             'password' => 'required',
             'foto' => 'file|max:2048|mimes:jpg,jpeg,png'
         ]);
