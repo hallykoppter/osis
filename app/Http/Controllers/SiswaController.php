@@ -120,7 +120,7 @@ class SiswaController extends Controller
         if($request->file('foto')) {
             // jika ada file -> Delete
             if($request->oldImage) {
-                Storage::delete($siswa->foto);
+                Storage::delete($request->oldImage);
             }
             // Upload file baru
             $extension = $request->file('foto')->extension();

@@ -15,7 +15,7 @@
                     <input type="text" id="nama1" class="form-control @error('nama1') is-invalid @enderror" name="nama1" value="{{old('nama1')}}">
                     @error('nama1')
                         <div class="invalid-feedback">
-                        {{$message}}
+                            {{$message}}
                         </div>
                     @enderror
                 </div>
@@ -26,7 +26,7 @@
                     <input type="text" id="nama2" class="form-control @error('nama2') is-invalid @enderror" name="nama2" value="{{old('nama2')}}">
                     @error('nama2')
                         <div class="invalid-feedback">
-                        {{$message}}
+                            {{$message}}
                         </div>
                     @enderror
                 </div>
@@ -37,7 +37,7 @@
                     <input type="text" name="nomor" class="form-control @error('nomor') is-invalid @enderror" id="inputnomor" value="{{old('nomor')}}">
                     @error('nomor')
                         <div class="invalid-feedback">
-                        {{$message}}
+                            {{$message}}
                         </div>
                     @enderror
                 </div>
@@ -48,32 +48,32 @@
                     <input type="color" class="form-control @error('warna') is-invalid @enderror" name="warna" id="warna" value="{{old('warna')}}">
                     @error('warna')
                         <div class="invalid-feedback">
-                        {{$message}}
+                            {{$message}}
                         </div>
                     @enderror
                 </div>
             </div>
             @error('visi_misi')
-                <p class="text-danger">
+                <p class="text-danger text-sm">
                     {{$message}}
                 </p>
             @enderror
             <div class="row mb-3">
                 <div class="col-lg-3">Visi & Misi</div>
                 <div class="col-lg-9">
-                    <input type="hidden" id="visi_misi" name="visi_misi">
+                    <input type="hidden" id="visi_misi" name="visi_misi" value="{{old('visi_misi')}}">
                     <trix-editor input="visi_misi"></trix-editor>
                 </div>
             </div>
+            @error('foto')
+                <p class="text-danger text-sm">
+                    {{$message}}
+                </p>
+            @enderror
             <div class="mb-3 row">
                 <div class="col-sm-3">Foto</div>
                 <div class="col-sm-9">
                     <input type="file" class="form-control @error('file') is-invalid @enderror" name="foto" id="image" onchange="previewImage()">
-                    @error('file')
-                        <div class="invalid-feedback">
-                            {{$message}}
-                        </div>
-                    @enderror
                 </div>
             </div>
             <div class="col-sm d-flex justify-content-end">
@@ -82,28 +82,28 @@
             </div>
           </form>
         </div>
-        <div class="col-lg d-flex justify-content-center">
+        <div class="col-lg d-flex justify-content-center me-2 p-2">
             <img class="img-preview keep-ratio">
         </div>
     </div>
 </div>
 
     <script>
-        // Preview Image
-    function previewImage() {
+            // Preview Image
+        function previewImage() {
 
-    const image = document.querySelector('#image');
-    const imgPrev = document.querySelector('.img-preview');
+        const image = document.querySelector('#image');
+        const imgPrev = document.querySelector('.img-preview');
 
-    imgPrev.style.display = 'flex';
+        imgPrev.style.display = 'flex';
 
-    const oFReader = new FileReader();
+        const oFReader = new FileReader();
 
-    oFReader.readAsDataURL(image.files[0]);
+        oFReader.readAsDataURL(image.files[0]);
 
-    oFReader.onload = function(oFREvent) {
-        imgPrev.src = oFREvent.target.result;
+        oFReader.onload = function(oFREvent) {
+            imgPrev.src = oFREvent.target.result;
+            }
         }
-    }
     </script>
 @endsection

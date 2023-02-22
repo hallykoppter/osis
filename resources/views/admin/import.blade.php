@@ -8,7 +8,7 @@
             <h3>Import Data Siswa</h3>
         </div>
         <div class="col-auto justify-content-end">
-            <a href="/siswa" class="btn btn-primary">Back</a>
+            <a href="/siswa" class="btn btn-info">Back</a>
         </div>
     </div>
     <div class="row justify-content-around">
@@ -26,7 +26,7 @@
                 </div>
                 <form action="/import" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="row g-2 mt-3">
+                    <div class="row g-2 mt-3 justify-content-between">
                         <div class="col-10">
                             <input class="form-control" type="file" id="formFile" name="file">
                         </div>

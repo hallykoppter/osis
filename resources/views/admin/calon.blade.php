@@ -18,7 +18,7 @@
     </div>
 
     <div class="col-lg mt-4">
-    <table class="table table-bordered">
+    <table class="table table-bordered table-sm">
         <thead>
           <tr>
             <th class="text-center" scope="col">No</th>

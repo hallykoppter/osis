@@ -18,6 +18,7 @@ use GuzzleHttp\Middleware;
 |
 */
 
+// Base
 Route::get('/', [AuthController::class, 'index'])->middleware('guest')->name('login');
 
 // Login
@@ -34,7 +35,6 @@ Route::middleware(['auth:user', 'auth:admin'])->group(function() {
 Route::middleware('auth:admin')->group(function(){
     // Dashboard
     Route::get('/dashboard', [MainController::class, 'admin']);
-
 
     // Siswa
     Route::get('/import-siswa', [SiswaController::class, 'import_siswa']);

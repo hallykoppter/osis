@@ -7,7 +7,8 @@
 
     <div class="row mt-3">
         <div class="col-lg-7">
-            <form action="/calon" autocomplete="off" method="post" enctype="multipart/form-data">
+            <form action="/calon/{{$calon->id}}" autocomplete="off" method="post" enctype="multipart/form-data">
+                @method('put')
                 @csrf
             <div class="mb-3 row">
                 <label for="nama1" class="col-sm-3 col-form-label">Calon Ketua</label>
@@ -15,7 +16,7 @@
                     <input type="text" id="nama1" class="form-control @error('nama1') is-invalid @enderror" name="nama1" value="{{ old('nama1', $calon->nama1)}}">
                     @error('nama1')
                         <div class="invalid-feedback">
-                        {{$message}}
+                            {{$message}}
                         </div>
                     @enderror
                 </div>
@@ -26,7 +27,7 @@
                     <input type="text" id="nama2" class="form-control @error('nama2') is-invalid @enderror" name="nama2" value="{{old('nama2', $calon->nama2)}}">
                     @error('nama2')
                         <div class="invalid-feedback">
-                        {{$message}}
+                            {{$message}}
                         </div>
                     @enderror
                 </div>
@@ -37,7 +38,7 @@
                     <input type="text" name="nomor" class="form-control @error('nomor') is-invalid @enderror" id="inputnomor" value="{{ old('nomor', $calon->nomor)}}">
                     @error('nomor')
                         <div class="invalid-feedback">
-                        {{$message}}
+                            {{$message}}
                         </div>
                     @enderror
                 </div>
@@ -48,15 +49,15 @@
                     <input type="color" class="form-control @error('warna') is-invalid @enderror" name="warna" id="warna" value="{{ old('warna', $calon->warna)}}">
                     @error('warna')
                         <div class="invalid-feedback">
-                        {{$message}}
+                            {{$message}}
                         </div>
                     @enderror
                 </div>
             </div>
             @error('visi_misi')
-                <div class="invalid-feedback">
+                <p class="text-danger text-sm">
                     {{$message}}
-                </div>
+                </p>
             @enderror
             <div class="row mb-3">
                 <div class="col-lg-3">Visi & Misi</div>
@@ -65,26 +66,33 @@
                     <trix-editor input="visi"></trix-editor>
                 </div>
             </div>
+            @error('foto')
+                <p class="text-danger text-sm">
+                    {{$message}}
+                </p>
+            @enderror
             <div class="mb-3 row">
                 <div class="col-sm-3">Foto</div>
                 <div class="col-sm-9">
-                    <input type="file" class="form-control @error('file') is-invalid @enderror" name="foto" id="image" onchange="previewImage()">
-                    @error('file')
-                        <div class="invalid-feedback">
-                        {{$message}}
-                        </div>
-                    @enderror
+                    <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" id="image" onchange="previewImage()">
                 </div>
             </div>
+            <input type="hidden" name="oldImage" value="{{$calon->foto}}">
             <div class="col-sm d-flex justify-content-end">
                 <a href="/calon" class="btn btn-danger mx-2">Kembali</a>
-                <button type="submit" class="btn btn-primary">Tambah</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
           </form>
         </div>
-        <div class="col-lg d-flex justify-content-center border border-5 me-2 p-2">
+        @if($calon->foto)
+        <div class="col-lg d-flex justify-content-center me-2 p-2">
+           <img src="{{asset('/storage/'.$calon->foto)}}" class="img-preview img-fluid">
+        </div>
+        @else
+        <div class="col-lg d-flex justify-content-center me-2 p-2">
            <img class="img-preview img-fluid">
         </div>
+        @endif
     </div>
 </div>
 
