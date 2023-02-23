@@ -48,6 +48,9 @@ Route::middleware('auth:admin')->group(function(){
     // Calon
     Route::resource('/calon', CalonController::class);
     Route::post('/calon/truncate', [CalonController::class, 'truncate']);
+
+    // Test
+    Route::get('/test', [MainController::class, 'test']);
 });
 
 // Logout

@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Siswa;
 use App\Models\Calon;
 use App\Models\Admin;
+use App\Models\Count_race;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         // Siswa::factory(189)->create();
         // Calon::factory(3)->create();
-        Admin::factory()->create();
+        // Admin::factory()->create();
+        Count_race::factory(6)->create();
     }
 }
