@@ -1,38 +1,37 @@
 [
     {
-        "calon_1": 39,
-        "calon_2": 95,
-        "calon_3": 150,
-        "color" : "#ff000"
+        "calon_1": 1,
+        "calon_2": 1,
+        "calon_3": 3
     },
     {
-        "calon_1": 33,
-        "calon_2": 137,
-        "calon_3": 146,
-        "color" : "#ff000"
+        "calon_1": 3,
+        "calon_2": 3,
+        "calon_3": 4
     },
     {
-        "calon_1": 83,
-        "calon_2": 58,
-        "calon_3": 59,
-        "color" : "#ff000"
+        "calon_1": 6,
+        "calon_2": 3,
+        "calon_3": 7
+    },
+    {
+        "calon_1": 6,
+        "calon_2": 5,
+        "calon_3": 10
+    },
+    {
+        "calon_1": 8,
+        "calon_2": 5,
+        "calon_3": 12
+    },
+    {
+        "calon_1": 11,
+        "calon_2": 6,
+        "calon_3": 14
     },
     {
         "calon_1": 12,
-        "calon_2": 49,
-        "calon_3": 191,
-        "color" : "#ff000"
-    },
-    {
-        "calon_1": 34,
-        "calon_2": 100,
-        "calon_3": 159,
-        "color" : "#ff000"
-    },
-    {
-        "calon_1": 78,
-        "calon_2": 84,
-        "calon_3": 18,
-        "color" : "#ff000"
+        "calon_2": 6,
+        "calon_3": 14
     }
 ]

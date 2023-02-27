@@ -27,9 +27,33 @@ class MainController extends Controller
         $pilihan = $request->input('nomor_calon');
         $nisn = $request->input('NISN');
 
+        $waktuAwal = date_create('10:00:00');
+        $waktuSekarang = date_create();
+        $diff = date_diff($waktuAwal, $waktuSekarang);
+        $minutes = $diff->days * 24 * 60;
+        $minutes += $diff->h * 60;
+        $minutes += $diff->i;
+
+        if ($minutes < 10){
+            $waktu = 1;
+        } if ($minutes >= 10) {
+            $waktu = 2;
+        } if ($minutes >= 30) {
+            $waktu = 3;
+        } if ($minutes >= 60) {
+            $waktu = 4;
+        } if ($minutes >= 90) {
+            $waktu = 5;
+        } if ($minutes >= 120) {
+            $waktu = 6;
+        } if ($minutes >= 150) {
+            $waktu = 7;
+        }
+
         $siswa = Siswa::firstWhere('nisn', $nisn);
         $siswa->sudah_memilih = 1;
         $siswa->pilihan = $pilihan;
+        $siswa->waktu_memilih = $waktu;
         $siswa->save();
 
         return redirect('done');
@@ -52,10 +76,9 @@ class MainController extends Controller
     // Test PHP dan Sebagainya
     public function test()
     {
-        // $data =  Count_race::all();
-        // $encoded_data = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        // file_put_contents('data_2.json', $encoded_data);
-        // die;
+        $data =  Count_race::all();
+        $encoded_data = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        file_put_contents('data_2.json', $encoded_data);
 
 
         $waktuAwal = date_create('10:00:00');

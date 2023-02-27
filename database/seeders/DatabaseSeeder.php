@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         // Siswa::factory(189)->create();
         // Calon::factory(3)->create();
-        // Admin::factory()->create();
+        Admin::factory()->create();
         Count_race::factory(6)->create();
     }
 }

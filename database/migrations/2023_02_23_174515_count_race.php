@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('count_race', function (Blueprint $table) {
+        Schema::create('count_races', function (Blueprint $table) {
             $table->integer('calon_1');
             $table->integer('calon_2');
             $table->integer('calon_3');

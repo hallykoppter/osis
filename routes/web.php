@@ -48,6 +48,7 @@ Route::middleware('auth:admin')->group(function(){
     // Calon
     Route::resource('/calon', CalonController::class);
     Route::post('/calon/truncate', [CalonController::class, 'truncate']);
+    Route::get('hitung-suara', [CalonController::class, 'hitung_suara']);
 
     // Test
     Route::get('/test', [MainController::class, 'test']);

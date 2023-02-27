@@ -74,7 +74,7 @@
       smallNumberPrefixes: []
     });
 
-    var stepDuration = 5000;
+    var stepDuration = 10000;
 
 
     // Set themes
@@ -159,7 +159,7 @@
     });
 
     var label = chart.plotContainer.children.push(am5.Label.new(root, {
-      text: "2002",
+      text: "1",
       fontSize: "2em",
       opacity: 0.2,
       x: am5.p100,
@@ -224,7 +224,7 @@
     var interval = setInterval(function () {
       time++;
 
-      if (time > 5) {
+      if (time > 7) {
         clearInterval(interval);
         clearInterval(sortInterval);
       }
@@ -293,8 +293,8 @@
 
 
     }); // end am5.ready()
-    </script>
 
+    </script>
     <!-- HTML -->
     <div class="item">
     <div id="chartdiv"></div>

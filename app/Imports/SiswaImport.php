@@ -23,8 +23,9 @@ class SiswaImport implements ToModel, WithHeadingRow
             'NISN' => $row['nisn'],
             'password' => Hash::make($row['password']),
             'foto' => $row['foto'],
-            'sudah_memilih' => 0,
-            'pilihan' => 0
+            'sudah_memilih' => $row['sudah_memilih'],
+            'pilihan' => $row['pilihan'],
+            'waktu_memilih' => $row['waktu_memilih']
         ]);
     }
 }

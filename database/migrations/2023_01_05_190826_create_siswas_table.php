@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('pilihan');
             $table->string('NISN')->unique();
             $table->string('password');
+            $table->integer('waktu_memilih');
         });
     }
 
