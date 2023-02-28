@@ -7,6 +7,7 @@
   <title>OSIS | e-Lection</title>
   <link rel="stylesheet" href="/css/main_style.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/ed17974c3a.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -15,43 +16,62 @@
     $color = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
 ?>
 
-  <div class="pembungkus">
-    <div class="content">
-      <div class="title">
-        <marquee>SILAKAN PILIH SALAH SATU CALON DI BAWAH INI!</marquee>
-      </div>
-      <div class="info" id="info" style="background-color: {{ $color }};">
-        <div class="row g-3 align-items-center">
-          <div class="col-lg ms-2">
-            <img src="img/siswa/{{auth()->guard('user')->user()->foto}}" width="110px" onerror="this.onerror=null; this.src='/img/profile.jpg'" class="img-fluid">
-          </div>
-          <div class="col-lg-8">
-            <input type="text" readonly class="form-control-plaintext ms-1 fw-bold text-light" id="staticEmail2" value="{{ auth()->guard('user')->user()->nama }}">
-            <input type="text" readonly class="form-control-plaintext ms-1 fw-bold text-light" id="staticEmail2" value="Kelas {{ auth()->guard('user')->user()->kelas }}">
-            <input type="text" readonly class="form-control-plaintext ms-1 fw-bold text-light" id="staticEmail2" value="{{ auth()->guard('user')->user()->NISN }}">
-          </div>
-        </div>
-      </div>
-      <div class="calon">
-        @foreach ( $calon as $c)
-        <div data-bs-toggle="modal" data-bs-target="#modal{{$c->id}}" id="link">
-        <div class="card text-light" id="card" style="width: 19rem; background-color: {{$c->warna}};">
-            <img src="/img/calon.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">
-                    <h3>Calon Nomor {{ $c->nomor }}</h3>
-                </p>
-                <p class="card-text border border-top-1">
-                    <h5>{{ $c->nama1 }}</h5>
-                    <h5>{{ $c->nama2 }}</h5>
-                </p>
-            </div>
-        </div>
-        </div>
-        @endforeach
-      </div>
+<div class="header fixed-top justify-content-between">
+    <div class="logo">
+        <i class="fa-solid fa-check-to-slot me-2"></i>
+        <span class="title"> OSIS | e-Lection</span>
     </div>
-  </div>
+    <div class="poweredby">
+        <div class="smp rounded-circle">
+            <img src="/img/smp.png" class="img-fluidd" alt="smp">
+        </div>
+        <div class="osis rounded-circle">
+            <img src="/img/osis.png" class="img-fluidd" alt="osis">
+        </div>
+    </div>
+</div>
+
+<div class="pembungkus">
+    <div class="content">
+        <div class="row text-center mb-5">
+            <h2>SILAKAN PILIH SALAH SATU CALON DI BAWAH INI!</h2>
+        </div>
+        <div class="row justify-content-around">
+        @foreach ( $calon as $c)
+        {{-- <div data-bs-toggle="modal" data-bs-target="#modal{{$c->id}}" id="link"> --}}
+            <div class="card text-light" id="card" style="width: 16rem; background-color: {{$c->warna}};" data-bs-toggle="modal" data-bs-target="#modal{{$c->id}}" id="link">
+                <img src="/img/calon.jpg" class="card-img-top mt-2" alt="...">
+                <div class="card-body">
+                    <p class="card-text">
+                        <h3>Calon Nomor {{ $c->nomor }}</h3>
+                    </p>
+                    <p class="card-text border border-top-1">
+                        <h5>{{ $c->nama1 }}</h5>
+                        <h5>{{ $c->nama2 }}</h5>
+                    </p>
+                </div>
+            </div>
+        {{-- </div> --}}
+        @endforeach
+    </div>
+    </div>
+</div>
+
+
+<div class="informasi">
+    <div class="img mb-4">
+        <img src="{{ asset('storage/siswas/'. auth()->guard('user')->user()->foto)}}" class="img-fluid" alt="foto-siswa" onerror="this.onerror=null; this.src='/img/default_profile.png'">
+    </div>
+    <h5 class="mt-2">{{ auth()->guard('user')->user()->nama }}</h5>
+    <h5 class="mt-2">KELAS {{ auth()->guard('user')->user()->kela2 }}</h5>
+    <h5 class="mt-2 mb-4">{{ auth()->guard('user')->user()->NISN }}</h5>
+</div>
+
+
+<div class="footer fixed-bottom justify-content-center">
+    <p>Copyright &copy; Kurni Sandi {{ date('Y'); }}. <i>All Right Reserved</i></p>
+</div>
+
 
 
   {{-- Modal --}}
@@ -66,9 +86,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <h5 class="text-center">Visi</h5>
-          <p>{{$c->visi_misi}}</p>
-          <hr>
+            {!! $c->visi_misi !!}
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

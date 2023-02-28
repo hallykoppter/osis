@@ -15,13 +15,13 @@
       <div class="login-container">
 
         <!-- User Form -->
-        <form method="post" action="/login" class="user">
+        <form method="post" action="/login" class="user" autocomplete="off">
           @csrf
           <h1 class="judul">Selemat Datang di Aplikasi Pemilihan Ketua OSIS</h1>
           <h2 class="title">Login Pemilih</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="NISN" name="NISN" autofocus>
+            <input type="text" placeholder="NISN / Username" name="NISN" autofocus>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
@@ -36,7 +36,7 @@
         </form>
 
         <!-- Admin Form -->
-        <form method="post" action="/admin_login" class="admin">
+        <form method="post" action="/admin_login" class="admin" autocomplete="off">
           @csrf
           <h2 class="title">Admin Login</h2>
           <div class="input-field">

@@ -77,7 +77,7 @@
         <div class="col-lg d-flex justify-content-center">
             <input type="hidden" value="{{ $siswa->foto }}" name="oldImage">
             <div class="col-sm-8">
-                <img class="img-preview img-fluid" src="{{ asset('storage/'. $siswa->foto) }}" onerror="this.onerror=null; this.src='/img/default_profile.png'">
+                <img class="img-preview img-fluid" src="{{ asset('storage/siswas/'. $siswa->foto) }}" onerror="this.onerror=null; this.src='/img/default_profile.png'">
             </div>
         </div>
     </div>

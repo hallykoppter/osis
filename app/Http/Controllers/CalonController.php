@@ -150,6 +150,7 @@ class CalonController extends Controller
     {
 
         DB::table('calons')->truncate();
+        Storage::deleteDirectory('calons');
 
         return redirect('/calon');
     }

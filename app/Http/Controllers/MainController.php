@@ -27,14 +27,14 @@ class MainController extends Controller
         $pilihan = $request->input('nomor_calon');
         $nisn = $request->input('NISN');
 
-        $waktuAwal = date_create('10:00:00');
+        $waktuAwal = date_create('08:00:00');
         $waktuSekarang = date_create();
         $diff = date_diff($waktuAwal, $waktuSekarang);
         $minutes = $diff->days * 24 * 60;
         $minutes += $diff->h * 60;
         $minutes += $diff->i;
 
-        if ($minutes < 10){
+          if ($minutes < 10) {
             $waktu = 1;
         } if ($minutes >= 10) {
             $waktu = 2;

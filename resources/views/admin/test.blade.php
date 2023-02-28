@@ -74,7 +74,7 @@
       smallNumberPrefixes: []
     });
 
-    var stepDuration = 10000;
+    var stepDuration = 5000;
 
 
     // Set themes

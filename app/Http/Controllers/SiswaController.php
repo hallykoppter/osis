@@ -152,9 +152,10 @@ class SiswaController extends Controller
         return redirect('/siswa');
     }
 
-    public function truncate() {
-
+    public function truncate()
+    {
         DB::table('siswas')->truncate();
+        Storage::deleteDirectory('siswas');
 
         return redirect('/siswa');
     }
@@ -193,11 +194,11 @@ class SiswaController extends Controller
     public function batch_image(Request $request, Siswa $siswa)
     {
         $validate = $request->validate([
-                'batch_image' => 'file|max:10240|required'
+                'batch_image' => 'file|max:20480|required'
             ]);
         if('storage/batch/batch_image.zip' != null){
             Storage::delete('batch/batch/batch_image.zip');
-        }
+        };
         $file = $request->file('batch_image')->storeAs('batch', 'batch_image.zip');
         $zip = Zip::open('storage/'. $file);
         $zip->extract('storage/siswas');
