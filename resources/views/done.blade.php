@@ -110,8 +110,8 @@
 </head>
 <body>
 
-  <div class="pembungkus">
-    <div class="content">
+  <div class="bungkus">
+    <div class="konten">
 
         <div class="row p-5">
             <div class="col-lg-4 text-center my-2">

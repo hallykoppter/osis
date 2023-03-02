@@ -13,6 +13,10 @@
                 @csrf
                 <button onclick="return confirm('yakin menghapus semua data?')" type="submit" class="btn btn-danger btn-sm ms-1">Hapus Semua</button>
             </form>
+            <form action="/calon/reset_suara" method="post">
+                @csrf
+                <button onclick="return confirm('yakin mereset suara?')" type="submit" class="btn btn-danger btn-sm ms-1">Reset Suara</button>
+            </form>
             <a href="/export-calon" class="btn btn-sm btn-success ms-1">Download</a>
             <a href="/hitung-suara" class="btn btn-sm text-light btn-info ms-1">Hitung Suara</a>
         </div>

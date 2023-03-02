@@ -1,15 +1,85 @@
-<!-- Styles -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/hasil_style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/ed17974c3a.js" crossorigin="anonymous"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+    crossorigin="anonymous">
+    </script>
+    <title>OSIS | {{ $title }}</title>
+</head>
+<body>
+
 <style>
-    .item {
-        width: 80%;
-        margin: 10rem;
-    }
     #chartdiv {
         width: 80%;
         height: 300px;
     }
 </style>
 
+    {{-- Header --}}
+    <div class="header fixed-top justify-content-between">
+        <div class="logo">
+            <i class="fa-solid fa-check-to-slot me-2"></i>
+            <span class="title"> OSIS | e-Lection</span>
+        </div>
+        <div class="poweredby">
+            <div class="smp rounded-circle">
+                <img src="/img/smp.png" class="img-fluidd" alt="smp">
+            </div>
+            <div class="osis rounded-circle">
+                <img src="/img/osis.png" class="img-fluidd" alt="osis">
+            </div>
+        </div>
+    </div>
+
+    {{-- Content --}}
+    <div class="pembungkus">
+        <div class="content">
+            <h2 class="mt-2">
+                HASIL PEMILIHAN SUARA
+            </h2>
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-2">
+                    <button class="btn btn-primary" onclick="display()">Tampilkan Hasil</button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                    <div id="chartdiv" class="chart" style="display: none;"></div>
+            </div>
+            <div class="row mt-5 justify-content-around">
+                @foreach ( $calon as $c)
+                    <div class="card text-light" id="card" style="width: 16rem; background-color: {{$c->warna}};">
+                        <img src="/img/calon.jpg" class="card-img-top mt-2" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <h3>Calon Nomor {{ $c->nomor }}</h3>
+                            </p>
+                            <p class="card-text border border-top-1">
+                                <h5>{{ $c->nama1 }}</h5>
+                                <h5>{{ $c->nama2 }}</h5>
+                            </p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    {{-- Script --}}
+    <script>
+        function display() {
+            document.querySelector('.chart').style.display = 'block';
+        }
+    </script>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
     <!-- Resources -->
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
@@ -17,6 +87,8 @@
 
     <!-- Chart code -->
     <script>
+    function display() {
+        document.querySelector('.chart').style.display = 'block';
     am5.ready(function() {
 
 
@@ -26,6 +98,36 @@
 
 
     console.log(allData);
+
+    // var allData = {
+    //     "2002": {
+    //         "Calon 1": 0,
+    //         "Calon 2": 0,
+    //         "Calon 3": 0
+    //     },
+    //     "2003": {
+    //         "Calon 1": 50,
+    //         "Calon 2": 28,
+    //         "Calon 3": 30
+    //     },
+    //     "2004": {
+    //         "Calon 1": 72,
+    //         "Calon 2": 80,
+    //         "Calon 3": 75
+    //     },
+    //     "2005": {
+    //         "Calon 1": 89,
+    //         "Calon 2": 102,
+    //         "Calon 3": 128
+    //     },
+    //     "2006": {
+    //         "Calon 1": 192,
+    //         "Calon 2": 168,
+    //         "Calon 3": 152
+    //     }
+    // };
+
+    // console.log(allData);
 
     // Create root element
     // https://www.amcharts.com/docs/v5/getting-started/#Root_element
@@ -262,10 +364,8 @@
     });
 
 
-    }); // end am5.ready()
+    })}; // end am5.ready()
 
     </script>
-    <!-- HTML -->
-    <div class="item">
-    <div id="chartdiv"></div>
-    </div>
+</body>
+</html>

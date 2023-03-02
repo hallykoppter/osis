@@ -261,6 +261,29 @@ class CalonController extends Controller
         Count_race::create($validate6);
         Count_race::create($validate7);
 
+
+
+        Calon::where('nomor', 1)->update(['jumlah_suara' => $calon1]);
+        Calon::where('nomor', 2)->update(['jumlah_suara' => $calon2]);
+        Calon::where('nomor', 3)->update(['jumlah_suara' => $calon3]);
+
+
         return redirect('/test');
+    }
+
+    public function reset_suara() {
+        Calon::query()->update([
+            'jumlah_suara' => 0
+        ]);
+        return redirect('/calon');
+    }
+
+    public function hasil_suara() {
+        $data = [
+            'title' => 'Hasil Suara',
+            'calon' => Calon::all()
+        ];
+
+        return view('admin.hasil')->with($data);
     }
 }

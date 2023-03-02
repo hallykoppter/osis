@@ -186,7 +186,8 @@ class SiswaController extends Controller
     {
         Siswa::query()->update([
             'sudah_memilih' => 0,
-            'pilihan' => 0
+            'pilihan' => 0,
+            'waktu_memilih' => 0
         ]);
         return redirect('/siswa');
     }

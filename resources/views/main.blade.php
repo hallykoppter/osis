@@ -63,7 +63,7 @@
         <img src="{{ asset('storage/siswas/'. auth()->guard('user')->user()->foto)}}" class="img-fluid" alt="foto-siswa" onerror="this.onerror=null; this.src='/img/default_profile.png'">
     </div>
     <h5 class="mt-2">{{ auth()->guard('user')->user()->nama }}</h5>
-    <h5 class="mt-2">KELAS {{ auth()->guard('user')->user()->kela2 }}</h5>
+    <h5 class="mt-2">KELAS {{ auth()->guard('user')->user()->kelas }}</h5>
     <h5 class="mt-2 mb-4">{{ auth()->guard('user')->user()->NISN }}</h5>
 </div>
 

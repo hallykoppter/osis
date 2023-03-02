@@ -16,7 +16,6 @@ body {
     height: 100%;
     background-color: #fff !important;
     position: relative;
-    overflow: hidden;
 }
 
 .header {
@@ -78,26 +77,6 @@ body {
     height: 80%;
 }
 
-.informasi {
-    position: absolute;
-    top: 0;
-    right: -20px;
-    width: 250px;
-    /* background-color: red; */
-    transform: translate(0, 45%);
-    border: 3px solid #04befe;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.informasi .img {
-    margin: 2rem 0 10px 0;
-    display: flex;
-    height: 120px;
-    justify-content: center;
-}
-
-
 .footer {
     height: 40px;
     width: 100%;
@@ -116,102 +95,17 @@ body {
     height: 100vh;
     padding: 10px;
     box-sizing: border-box;
-    align-items: center;
     position: relative;
+    justify-content: center;
 }
 
 .pembungkus .content {
     display: flex;
-    width: 65%;
-    position: absolute;
-    padding: 10px;
-    flex-direction: column;
-    margin-left: 100px;
-}
-
-.card:hover{
-    transform: scale(1.1);
-}
-
-
-.bungkus {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.konten {
     width: 80%;
-    height: 80vh;
-    background-color: #eee;
-}
-
-.terimakasih {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #000;
-    line-height: 3rem;
-}
-/* .content .info {
     position: absolute;
-    top: -5%;
-    right: 1%;
-    width: 500px;
-    height: auto;
-    display: flex;
     padding: 10px;
-    color: #fff;
-    font-weight: 500;
-    border-radius: 8px;
-}
-
-.content .title {
-    display: inline-flex;
-    width: 60%;
-    height: 4rem;
-    padding-left: 10px;
-    text-align: start;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: 500;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    background-color: #acacac;
-}
-
-.content .calon {
-    display: flex;
-    margin-top: 50px;
-    flex-direction: row;
-    justify-content: space-around;
     text-align: center;
+    margin-top: 90px;
+    flex-direction: column;
 }
 
-
-
-.calon .card.active{
-    transform: scale(1.1);
-}
-
-.terimakasih {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #000;
-    line-height: 3rem;
-}
-
-@media (max-width: 720px) {
-    .content {
-        transform: scale(1.2);
-    }
-
-    .terimakasih {
-        font-size: 1rem;
-        line-height: 1.2rem;
-    }
-} */
